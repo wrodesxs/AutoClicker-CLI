@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int menu(int op) {
+void menu(int op) {
     printf("Autoclicker para jogos: \n\n\n");
     printf("[1] Autoclick\n\n");
     printf("[2] Opcoes Avançadas\n\n");
