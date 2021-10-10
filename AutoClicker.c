@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+#define __DefaultDelay 60
+
 void menu(int op) {
     printf("Autoclicker para jogos: \n\n\n");
     printf("[1] Autoclick\n\n");
@@ -29,7 +31,7 @@ int main(int op) {
         while(OK) {
             while(GetAsyncKeyState(VK_LBUTTON)){
                 mouse_event(MOUSEEVENTF_LEFTDOWN,0,0,0,0);
-                Sleep(60);
+                Sleep(__DefaultDelay);
                 mouse_event(MOUSEEVENTF_LEFTUP,0,0,0,0);
             }
         }
@@ -38,7 +40,7 @@ int main(int op) {
         system("cls");
         printf("Opcoes Avançadas: \n\n\n");
         printf("[1] Delay\n\n");
-        printf("[99] Voltar para o menu");
+        printf("[99] Voltar para o menu\n\n");
         printf("Opcao -> ");
         scanf("%d", &opAvan);
 
