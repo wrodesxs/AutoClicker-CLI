@@ -4,41 +4,45 @@
 
 #define __DefaultDelay 60
 
-void menu(int op) {
+void menu(int op)
+{
     printf("Autoclicker para jogos: \n\n\n");
     printf("[1] Autoclick\n\n");
-    printf("[2] Opcoes Avançadas\n\n");
+    printf("[2] Opcoes Avancadas\n\n");
     printf("[99] Sair\n\n");
-    printf("Opção -> ");
+    printf("Opcao -> ");
     scanf("%d", &op);
 }
 
-int main(int op) {
-    bool OK = true;
+int main(int op)
+{
+    static bool OK = true;
     int delay;
     int opAvan;
 
     printf("Autoclicker para jogos: \n\n\n");
     printf("[1] Autoclick\n\n");
-    printf("[2] Opcoes Avançadas\n\n");
+    printf("[2] Opcoes Avancadas\n\n");
     printf("[99] Sair\n\n");
     printf("Opcao -> ");
-    scanf("%d", &op);    
+    scanf("%d", &op);
 
     switch (op)
     {
     case 1:
-        while(OK) {
-            while(GetAsyncKeyState(VK_LBUTTON)){
-                mouse_event(MOUSEEVENTF_LEFTDOWN,0,0,0,0);
+        while (OK)
+        {
+            while (GetAsyncKeyState(VK_LBUTTON))
+            {
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 Sleep(__DefaultDelay);
-                mouse_event(MOUSEEVENTF_LEFTUP,0,0,0,0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
             }
         }
         break;
     case 2:
         system("cls");
-        printf("Opcoes Avançadas: \n\n\n");
+        printf("Opcoes Avancadas: \n\n\n");
         printf("[1] Delay\n\n");
         printf("[99] Voltar para o menu\n\n");
         printf("Opcao -> ");
@@ -51,29 +55,32 @@ int main(int op) {
             printf("Delay -> ");
             scanf("%d", &delay);
 
-            while(OK) {
-                while(GetAsyncKeyState(VK_LBUTTON)) {
-                    mouse_event(MOUSEEVENTF_LEFTDOWN,0,0,0,0);
+            while (OK)
+            {
+                while (GetAsyncKeyState(VK_LBUTTON))
+                {
+                    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                     Sleep(delay);
-                    mouse_event(MOUSEEVENTF_LEFTUP,0,0,0,0);
+                    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                 }
             }
             break;
         case 99:
             system("cls");
-            menu(op);
+            menu(op); //Depois de escolher a opção de voltar ao menu as escolhas não fazem nada e o programa fecha
             break;
-        
+
         default:
             printf("Escolhe uma opcao valida");
         }
-        
+
         break;
     case 99:
         exit(1);
         break;
-    
+
     default:
         printf("Escolhe uma opcao valida");
     }
 }
+
