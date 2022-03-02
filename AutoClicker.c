@@ -67,7 +67,7 @@ int main(int op)
             break;
         case 99:
             system("cls");
-            menu(op); //Depois de escolher a opção de voltar ao menu as escolhas não fazem nada e o programa fecha
+            menu(op); 
             break;
 
         default:
